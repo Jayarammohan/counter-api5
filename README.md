@@ -17,8 +17,10 @@ Spring Security 3.2.0, Given input data(given as part of the programming task) c
 
 To build the project
 ====================
-cd workspace/counter-api
+cd workspace/counter-api5-main
+
 mvn clean
+
 mvn tomcat:run 
 
 Now, the application gets started up and we get siimilar output to the below on the screen:
@@ -42,7 +44,9 @@ $ curl http://localhost:8080/counter-api/top/25 -H"Authorization: Basic b3B0dXM6
 $ curl http://localhost:8080/counter-api/search -H"Authorization: Basic b3B0dXM6Y2FuZGlkYXRlcw==" -d'{"searchText":["Duis","Sed","Augue","Donec","Pellentesque","123"]}' -H"Content-Type: application/json" -X POST {"counts":[{"duis":11},{"sed":16},{"augue":7},{"donec":8},{"pellentesque":6},{"123":0}]}
 
 In the curl command, we might substitute the authorization string as -u optus:candidates instead, if we wish.
-
+I used Postman to verify the POST command.
+I also used the browser to verify top so many items. It prompts for credentials and I give optus and candidates. Then
+the csv file gets downloaded with the appropriate number of topmost items.
 Assumptions :
 -------------
 1. the count of words is case insensitive, ie., it counts Duis and duis occurrences each occurring in the file as 2 counts.
@@ -58,10 +62,4 @@ However, if it is <=0, then an empty string is returned.
 
 
 For the search command, if the input json string contains error, validation captures it and it is reported in terms of the http status code and the error.
-# counter-api1
-# counter-api1
-# counter-api2
-# counter-api3
-# counter-api4
-# counter-api4
-# counter-api5
+ 
